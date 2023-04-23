@@ -2,8 +2,9 @@ import './App.css';
 import { useEffect, useState } from 'react'
 import Home from "./Home";
 import About from "./About";
-import Error from "./Error";
+// import Error from "./Error";
 import CharacterDetail from "./CharacterDetail";
+import { Link, Route, Routes } from 'react-router-dom'
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -19,8 +20,16 @@ function App() {
   return (
     <div className="App">
       <nav className="navbar">
-      
+        {/* <Link className='link' to='/'>Home</Link> */}
+        <Link className='link' to='/about'>About</Link>
       </nav>
+
+<Routes>
+  {/* <Route path='/' element={<Home />} /> */}
+  <Route path='about' element={<About characters={characters} />} />
+  <Route path='characters/:id' element={<CharacterDetail />} />
+  
+</Routes>
   
     </div>
   );
